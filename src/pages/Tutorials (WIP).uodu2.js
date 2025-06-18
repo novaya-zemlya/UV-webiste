@@ -8,7 +8,7 @@ $w.onReady(() => {
       const item = await wixData.get("hits", itemId); // get the item from the collection
 
       
-      item.number = (item.number || 0) + 1; // hits ++
+      item.Number = (item.Number || 0) + 1; // hits ++
 
       
       const updatedItem = await wixData.update("hits", item); // call the update 
@@ -16,6 +16,7 @@ $w.onReady(() => {
       console.log("Updated number:", updatedItem.number);
     } catch (err) {
       console.error("Failed to update item:", err.message);
+   
     }
   });
 });
