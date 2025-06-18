@@ -16,7 +16,7 @@ let options = {
 // yey - Chris 6/15/2025
 
 // As this is now the log, added small explantion to stuff for if i can no longer work on this and someone else has to take over, also connected to git - Max 15:28 17/6/25
-// testing git / vs intagration 18/6/25
+// testing git / vs intagration (it works) - Max 12:09 18/6/25
 
 
 
