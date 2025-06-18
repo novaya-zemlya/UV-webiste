@@ -59,6 +59,7 @@ $w.onReady(() => {
   });
 
   $w("#softGo").onClick(async () => {
+    $W('#softTut').expand();
 
     expandCollapse('#softTut');
 
@@ -84,7 +85,7 @@ $w.onReady(() => {
 
     expandCollapse('#mechTut');
 
-    
+
     const itemId = "749e1974-eae9-40e8-b379-48b1eee2b381"; // id of the mech item, if cms is changed this must also change, dont forget future me (or anyone else)
     try {
       
