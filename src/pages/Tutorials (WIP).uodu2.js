@@ -3,11 +3,11 @@ import wixData from 'wix-data';
 
 // collapse all but the wanted section (a better way to do this prob exists)
 function expandCollapse(params){
-    $W('#elecTut').collapse();
-    $W('#mechTut').collapse();
-    $W('#softTut').collapse();
-    $W('#adminTut').collapse();
-    $W(params).expand();
+    $w('#elecTut').collapse();
+    $w('#mechTut').collapse();
+    $w('#softTut').collapse();
+    $w('#adminTut').collapse();
+    $w(params).expand();
 
 }
 
@@ -59,7 +59,7 @@ $w.onReady(() => {
   });
 
   $w("#softGo").onClick(async () => {
-    $W('#softTut').expand();
+    
 
     expandCollapse('#softTut');
 
