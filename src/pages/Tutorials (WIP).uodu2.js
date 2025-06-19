@@ -1,7 +1,9 @@
+// TODO: Make videos stop when collapsed, .collapsed logic?
+
 import wixData from 'wix-data';
 
 
-// collapse all but the wanted section (a better way to do this prob exists)
+//REVIEW: collapse all but the wanted section (a better way to do this prob exists)
 function expandCollapse(params){
     $w('#elecTut').collapse();
     $w('#mechTut').collapse();
@@ -11,7 +13,42 @@ function expandCollapse(params){
 
 }
 
+//REVIEW - there has got to be a better/ cleaner way to do this
+// id is the video id, and empty is if the video should be playing (ex: $w('videothing').html=fomatVideo('videoId',false); <- this would create the video)
+function formatVideo(id, empty){
+  if (!empty){
+    return ` 
+<style>
+.video-container {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.video-container:hover {
+  transform: scale(1.03);
+}
+</style>
+
+<div class="video-container">
+  <iframe width="100%" height="100%"
+    src="https://www.youtube.com/embed/` + id + `"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+`;
+  }
+  else return "";
+}
+
 $w.onReady(() => {
+
+
+
+
+
   $w("#adminGo").onClick(async () => {
     expandCollapse('#adminTut'); // close others
 
@@ -103,4 +140,33 @@ $w.onReady(() => {
    
     }
   });
+//TODO - condense this, its not scaleable
+  $w("#adminTut").onCollapse(() => {
+    $w("#adminVid").html = formatVideo("", true);
+  });
+  $w("#mechTut").onCollapse(() => {
+    $w("#mechVid").html = formatVideo("", true);
+  });
+  $w("#elecTut").onCollapse(() => {
+    $w("#elecVid").html = formatVideo("", true);
+  });
+  $w("#softTut").onCollapse(() => {
+    $w("#softVid").html = formatVideo("", true);
+  });
+
+
+  $w("#adminTut").onExpand(() => {
+    $w("#adminVid").html = formatVideo("Jmmzl52EphU", false);
+  });
+  $w("#mechTut").onExpand(() => {
+    $w("#mechVid").html = formatVideo("Bb0bWjn-CaI", false);
+  });
+  $w("#elecTut").onExpand(() => {
+    $w("#elecVid").html = formatVideo("451XC5PigRY", false);
+  });
+  $w("#softTut").onExpand(() => {
+    $w("#softVid").html = formatVideo("g-Vv4ouvzRU", false);
+  });
+
+  
 });
