@@ -1,4 +1,4 @@
-// TODO: Make videos stop when collapsed, .collapsed logic?
+// TODO: Make videos stop when collapsed, .onCollapse logic?
 
 import wixData from 'wix-data';
 
@@ -15,7 +15,23 @@ function expandCollapse(params){
 
 //REVIEW - there has got to be a better/ cleaner way to do this
 // id is the video id, and empty is if the video should be playing (ex: $w('videothing').html=fomatVideo('videoId',false); <- this would create the video)
+
 function formatVideo(id, empty){
+  if (!empty){
+    return `
+<div style="border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+  <iframe width="100%" height="100%"
+    src="https://www.youtube.com/embed/${id}"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+`;
+  } else return "";
+}
+
+/*function formatVideo(id, empty){
   if (!empty){
     return ` 
 <style>
@@ -42,7 +58,7 @@ function formatVideo(id, empty){
   }
   else return "";
 }
-
+*/
 $w.onReady(() => {
 
 
