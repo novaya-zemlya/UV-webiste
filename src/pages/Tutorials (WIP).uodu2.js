@@ -69,6 +69,11 @@ function formatVideo(id, empty) {
 
 $w.onReady(() => {
 
+  $w("#adminVid").html = "";
+  $w("#mechVid").html = "";
+  $w("#elecVid").html = "";
+  $w("#softVid").html = "";
+
 
 
 
@@ -194,3 +199,8 @@ $w.onReady(() => {
 
   
 });
+
+
+
+//$w("#adminVid").html = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jmmzl52EphU" frameborder="0" allowfullscreen></iframe>`;
+
