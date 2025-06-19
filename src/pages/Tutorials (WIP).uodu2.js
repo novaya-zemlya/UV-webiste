@@ -45,19 +45,26 @@ function expandCollapse(params){
 */
 
 
-function formatVideo(id, empty){
-  if (!empty){
+function formatVideo(id, empty) {
+  if (!empty) {
     return `
-<div style="border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
-  <iframe width="100%" height="100%"
-    src="https://www.youtube.com/embed/${id}"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
-`;
-  } else return "";
+<!DOCTYPE html>
+<html>
+  <body style="margin:0;">
+    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+      <iframe width="100%" height="100%" 
+        src="https://www.youtube.com/embed/${id}?autoplay=1&mute=1" 
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </body>
+</html>
+    `;
+  } else {
+    return "";
+  }
 }
 
 $w.onReady(() => {
